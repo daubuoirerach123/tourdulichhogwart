@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+        --primary-color: #0c1a3a; 
+        --secondary-color: #7f6a4d; 
+        --accent-color: #d4af37; 
+        --text-color: #f0f0f0; 
+        --bg-color: #050a1c;
+        }
+       .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        }
+        section {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }   
+
+
+        body {
+        font-family: 'Lora', serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hogwart.png');
+        background-attachment: fixed;
+        background-size: cover;
+        }
+        section {
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        }
+
+        .modau{
+            font-size: 50px;
+            color: var(--accent-color);
+            text-align: center;
+        }
+        #loimodau{
+            font-size: 20px;
+            color: var(--text-color);
+        }
+        .cta-button {
+        background: var(--accent-color);
+        color: var(--primary-color);
+        padding: 1rem 2.5rem;
+        text-decoration: none;
+        font-family: 'Cinzel', serif;
+        font-weight: 700;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.3s;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        }
+        #chaomung{
+            font-size: 30px;
+            color: var(--accent-color);
+            text-align: center;
+        }
+        #text2{
+            font-size: 15px;
+            color: var(--text-color);
+        }
+        .highlights {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-top: 2rem;
+            text-align: center;
+        }
+
+        .highlight-item {
+            background: rgba(12, 26, 58, 0.5);
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 3px solid var(--accent-color);
+            flex-basis: 200px;
+        }
+        .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--accent-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative; 
+    width: 50%;
+    box-sizing: border-box; 
+}
+
+
+
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+
+
+.timeline-item h3 {
+    color: var(--text-color);
+}
+        .timeline-item h3 {
+            color: var(--text-color);
+        }
+        
+            
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background-color: var(--primary-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 350px;
+    text-align: center;
+}
+.card .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 1rem 0;
+}
+.card ul {
+    list-style: none;
+    margin: 2rem 0;
+}
+.card ul li {
+    padding: 0.5rem 0;
+}
+.booking-form {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.booking-form input {
+    padding: 0.8rem;
+    border: 1px solid var(--secondary-color);
+    background-color: #1a2c50;
+    color: var(--text-color);
+    border-radius: 5px;
+}
+.booking-form input::placeholder {
+    color: #ccc;
+}
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+.faq-question {
+    cursor: pointer;
+    color: var(--text-color);
+    position: relative;
+    padding-right: 20px;
+}
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+.faq-item.active .faq-answer {
+    max-height: 200px; 
+}
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+    
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            item.classList.toggle('active');
+        });
+    });
+    
+   
+    const bookingForm = document.getElementById('booking-form');
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = this.querySelector('input[name="name"]').value;
+        if (name) {
+            alert(`Cảm ơn, ${name}! Yêu cầu của bạn đã được gửi. Chúng tôi sẽ liên hệ qua email sớm nhất!`);
+            this.reset();
+        }
+    });
+
+});
+    </script>
+    <section>
+        <div class = 'modau'>
+            <h1  >Khám Phá Phép Thuật <br>
+                 Hogwarts</h1>
+            <h2  id = 'loimodau'>Chuyến du hành của cuộc đời đang chờ đón bạn. Hãy biến giấc mơ thành hiện thực!</h2>
+            <a href="#lichtrinh" class="cta-button">Lịch trình</a>
+            <a href="#booking" class="cta-button">Đặt Vé Ngay!</a>
+            <a href="#faqs" class="cta-button">FAQS</a>
+        </div>
+    </section>
+    <section id="chaomung" class = "container">
+        
+            <h2>Chào mừng các bạn tham gia tour khám phá trường Hogwarts</h1>
+            <p id = 'text2'><b>Hãy sẵn sàng cho một cuộc phiêu lưu không thể nào quên. "Hành Trình Huyền Bí Tại Hogwarts" không chỉ là một chuyến đi, đó là một trải nghiệm nhập vai hoàn toàn, nơi bạn sẽ sống, học tập và khám phá như một học sinh thực thụ của Hogwarts trong 4 ngày 3 đêm.</b></p>
+        
+            <div class="highlights">
+                <div class="highlight-item">🚂 Du hành trên tàu tốc hành Hogwarts.</div>
+                <div class="highlight-item">🎩 Tham gia Lễ Phân Loại.</div>
+                <div class="highlight-item">🧪 Học các lớp Độc Dược & Bùa Chú.</div>
+                <div class="highlight-item">🍺 Thưởng thức Bia Bơ tại Hogsmeade.</div>
+            </div>
+    </section>
+    
+    <section  id ="lichtrinh">
+            <h2 style="color: var(--accent-color);">Lịch Trình Chi Tiết (4 Ngày / 3 Đêm)</h2>
+            <div class="timeline">
+                <div class="timeline-item" class ="test">
+                    <h3>Ngày 1: Chuyến Tàu Tốc Hành và Lễ Phân Loại</h3>
+                    <p>Khởi hành từ Ga Ngã Tư Vua, thưởng thức bữa trưa trên tàu và kết thúc bằng Lễ Phân Loại hoành tráng tại Đại Sảnh Đường.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Ngày 2: Những Giờ Học Phép Thuật</h3>
+                    <p>Tham gia các lớp học Độc Dược, Bùa Chú, và Phòng Chống Nghệ Thuật Hắc Ám. Tự do khám phá lâu đài vào buổi tối.</p>
+                </div>
+                <div class="timeline-item" class = "test">
+                    <h3>Ngày 3: Phiêu Lưu Tại Làng Hogsmeade</h3>
+                    <p>Khám phá Tiệm Giỡn Zonko, Công Tước Mật và thưởng thức Bia Bơ tại Quán Ba Cây Chổi. Tham dự Đại Tiệc Chia Tay vào buổi tối.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Ngày 4: Tạm Biệt Hogwarts</h3>
+                    <p>Dùng bữa sáng cuối cùng, mua sắm quà lưu niệm và lên Tàu Tốc Hành Hogwarts trở về thế giới Muggle.</p>
+                </div>
+            </div>
+        
+    </section>
+
+    <section id="booking" class="container">
+            <h2>Đặt Vé & Chi Phí</h2>
+            <div class="pricing-cards">
+                <div class="card">
+                    <h3>Phù thủy day</h3>
+                    <div class="price">£1,999</div>
+                    <ul>
+                        <li> Chỗ ở tại ký túc xá</li>
+                        <li> Tất cả bữa ăn & vé tàu</li>
+                        <li> Các lớp học phép thuật</li>
+                        <li> 01 đũa phép lưu niệm</li>
+                    </ul>
+                    
+                </div>
+                
+            </div>
+            <form id="booking-form" class="booking-form">
+                <h3>Gửi Yêu Cầu Đặt Vé</h3>
+                <input type="text" name="name" placeholder="Họ và Tên" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="number" name="guests" placeholder="Số lượng khách" min="1" required>
+                <button type="submit" class="cta-button">Gửi Yêu Cầu</button>
+            </form>
+        </section>
+
+    <section id="faqs" class="container">
+            <h2>Câu Hỏi Thường Gặp (FAQ)</h2>
+            <div class="faq-item">
+                <h4 class="faq-question">Tôi có cần phải đọc truyện Harry Potter không?</h4>
+                <p class="faq-answer">Không bắt buộc, nhưng trải nghiệm sẽ tuyệt vời hơn rất nhiều nếu bạn đã quen thuộc với thế giới phép thuật!</p>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Tour này có an toàn không?</h4>
+                <p class="faq-answer">Tuyệt đối an toàn. Mọi hoạt động "nguy hiểm" đều được mô phỏng một cách vui nhộn và có kiểm soát.</p>
+            </div>
+             <div class="faq-item">
+                <h4 class="faq-question">Ở Hogwarts có Wi-Fi không?</h4>
+                <p class="faq-answer">Các thiết bị công nghệ của Muggle hoạt động không ổn định do mật độ phép thuật quá cao. Tuy nhiên, chúng tôi có các "Khu Vực Thân Thiện Với Muggle" để bạn kết nối khi cần.</p>
+            </div>
+    </section>
+    
+</body>
+</html>
